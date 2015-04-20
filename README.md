@@ -1,7 +1,7 @@
 # node-apache-config
 A node js library to expose apache configuration details by parsing apache config. 
 
-```
+```javascript
 // get the document root for an apache named vhost.
 require('./apache.js').getDocumentRoot('domain.name', function(path){
 
