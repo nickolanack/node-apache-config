@@ -1,0 +1,11 @@
+/**
+ * 
+ */
+
+var apache=function(){
+	
+	
+	
+}
+
+
