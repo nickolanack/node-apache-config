@@ -10,9 +10,16 @@ require('./apache.js').getDocumentRoot('domain.name', function(path){
 });
 
 
-// get vhosts metadata:
-// returns [{name:'domain.name', },...]
-require('./apache.js').getHostsMeta('domain.name', function(path){
+// get vhosts metadata: {port:port, type:type, name:name, conf:conf};
+// returns [{
+  port:80, 
+  name:'domain.name', 
+  type:'namedvhost', 
+  conf:['path/to/config.conf', 1 /*line number in conf*/, 
+  aliases:[
+  {},...
+  ]/*if no aliases, then there is no aliases key*/]},...]
+require('./apache.js').getHostsMeta('domain.name', function(meta){
 
 
 
