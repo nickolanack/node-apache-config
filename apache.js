@@ -139,7 +139,7 @@ module.exports={
 		 */
 		getDocumentRoot:getDocumentRoot,
 		
-		getAccessLog:getAddessLog,
+		getAccessLog:getAccessLog,
 		getErrorLog:getErrorLog,
 		
 		/**
