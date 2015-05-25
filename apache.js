@@ -50,6 +50,7 @@ function getErrorLog(hostName, callback){
   			
   			//console.log(JSON.stringify(config));
   			callback(config.error);
+  			
 		});
 		
 	});
