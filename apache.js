@@ -22,6 +22,41 @@ function getDocumentRoot(hostName, callback){
 }
 
 
+function getAccessLog(hostName, callback){
+	
+	
+	getHostMeta(hostName, function(vhost){
+		
+		require('fs').readFile(vhost.conf[0], function (err, data) {
+  			if (err) throw err;
+  			var config=require('./httpd-conf-parser.js').parse(data.toString(),vhost.conf[1]);
+  			
+  			//console.log(JSON.stringify(config));
+  			callback(config.log);
+		});
+		
+	});
+
+}
+
+function getErrorLog(hostName, callback){
+	
+	
+	getHostMeta(hostName, function(vhost){
+		
+		require('fs').readFile(vhost.conf[0], function (err, data) {
+  			if (err) throw err;
+  			var config=require('./httpd-conf-parser.js').parse(data.toString(),vhost.conf[1]);
+  			
+  			//console.log(JSON.stringify(config));
+  			callback(config.log);
+		});
+		
+	});
+
+}
+
+
 function getHostMeta(hostName, callback){
 	
 	
@@ -104,11 +139,17 @@ module.exports={
 		 */
 		getDocumentRoot:getDocumentRoot,
 		
+		getAccessLog:getAddessLog,
+		getErrorLog:getErrorLog,
+		
 		/**
 		 * 
 		 * @returns array of strings, matching host names (not aliases)
 		 */
-		getHostsMeta:getHostsMeta
+		getHostsMeta:getHostsMeta,
+		
+		
+		
 
 };
 
