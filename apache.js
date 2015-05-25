@@ -2,6 +2,19 @@
  * 
  */
 
+function parseConfig(file, callback){
+	
+	
+	//add simple caching.
+	
+	require('fs').readFile(file, function (err, data) {
+			if (err) throw err;
+			var config=require('./httpd-conf-parser.js').parse(data.toString(),vhost.conf[1]);
+			
+			//console.log(JSON.stringify(config));
+			callback(config);
+	});
+}
 
 
 function getDocumentRoot(hostName, callback){
@@ -9,10 +22,7 @@ function getDocumentRoot(hostName, callback){
 	
 	getHostMeta(hostName, function(vhost){
 		
-		require('fs').readFile(vhost.conf[0], function (err, data) {
-  			if (err) throw err;
-  			var config=require('./httpd-conf-parser.js').parse(data.toString(),vhost.conf[1]);
-  			
+		parseConfig(vhost.conf[0],function(config){
   			//console.log(JSON.stringify(config));
   			callback(config.root);
 		});
@@ -27,10 +37,7 @@ function getAccessLog(hostName, callback){
 	
 	getHostMeta(hostName, function(vhost){
 		
-		require('fs').readFile(vhost.conf[0], function (err, data) {
-  			if (err) throw err;
-  			var config=require('./httpd-conf-parser.js').parse(data.toString(),vhost.conf[1]);
-  			
+		parseConfig(vhost.conf[0],function(config){
   			//console.log(JSON.stringify(config));
   			callback(config.log);
 		});
@@ -44,13 +51,9 @@ function getErrorLog(hostName, callback){
 	
 	getHostMeta(hostName, function(vhost){
 		
-		require('fs').readFile(vhost.conf[0], function (err, data) {
-  			if (err) throw err;
-  			var config=require('./httpd-conf-parser.js').parse(data.toString(),vhost.conf[1]);
-  			
+		parseConfig(vhost.conf[0],function(config){
   			//console.log(JSON.stringify(config));
   			callback(config.error);
-  			
 		});
 		
 	});
