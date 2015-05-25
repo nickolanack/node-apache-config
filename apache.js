@@ -49,7 +49,7 @@ function getErrorLog(hostName, callback){
   			var config=require('./httpd-conf-parser.js').parse(data.toString(),vhost.conf[1]);
   			
   			//console.log(JSON.stringify(config));
-  			callback(config.log);
+  			callback(config.error);
 		});
 		
 	});
