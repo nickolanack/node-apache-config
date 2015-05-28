@@ -20,7 +20,7 @@ vhostStrArr.forEach(function(hstr){
 	var first=lines.shift();
 
 	var parts=first.split(' ');
-	var port=parts[0];
+	var port=parseInt(parts[0]);
 	var type=parts[1];
 	var name=parts[2];
         var conf=first.split('(')[1].split(')')[0].split(':');	
