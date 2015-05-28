@@ -4,7 +4,7 @@ A node js library to expose apache configuration details by parsing apache confi
 
 ```javascript
 // get the document root for an apache named vhost.
-require('./apache.js').getDocumentRoot('domain.name', function(path){
+require('node-apache-config').getDocumentRoot('domain.name', function(path){
 
 	//... 
 
@@ -26,7 +26,7 @@ require('./apache.js').getDocumentRoot('domain.name', function(path){
 //  aliases:[
 //  {},...
 //  ]/*if no aliases, then there is no aliases key*/]},...]
-require('./apache.js').getHostsMeta('domain.name', function(meta){
+require('node-apache-config').getHostsMeta('domain.name', function(meta){
 
 
 
