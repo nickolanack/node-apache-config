@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/nickolanack/node-apache-config.svg?branch=master)](https://travis-ci.org/nickolanack/node-apache-config)
 # node-apache-config
 A node js library to expose apache configuration details by parsing apache config. 
 
