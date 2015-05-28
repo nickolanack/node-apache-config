@@ -12,7 +12,12 @@ require('./apache.js').getDocumentRoot('domain.name', function(path){
 ```
 
 ```javascript
-// get vhosts metadata: {port:port, type:type, name:name, conf:conf};
+// get vhosts metadata: 
+// {port:int, type:string, name:string, conf:[path:string, line:int], aliases:
+//   [
+//     {name:string, type:string('alias'), wildcard:bool},...
+//   ]
+// };
 // returns [{
 //  port:80, 
 //  name:'domain.name', 
